@@ -1,5 +1,5 @@
 {% set name = "elephas" %}
-{% set version = "0.4.3" %}
+{% set version = "1.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: bbfcd1ac1f19879a5ed924c037414909c9471df9e53a22ef4418db99a4b4d07a
+  sha256: e17eb933f7a69ae12115d39a80ec778a14ebf52c93027768dfe0f75449be326b
 
 build:
   noarch: python
