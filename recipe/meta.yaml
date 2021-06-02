@@ -1,5 +1,5 @@
 {% set name = "elephas" %}
-{% set version = "1.1.0" %}
+{% set version = "2.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: ac11f8cbf40a1b0a816178a569e5446ddb64b135c546f0039211dc24c034c70d
+  sha256: 19869e5b2c84ca782aef1bb42fee753d8b0d4957d8a7245f1c3ef49d4421176b
 
 build:
   noarch: python
@@ -17,7 +17,7 @@ build:
 requirements:
   host:
     - pip
-    - python >=3
+    - python >=3.6
 
   run:
     - flask
@@ -25,14 +25,13 @@ requirements:
     - hyperas
     - pyspark
     - tensorflow
-    - python >=3
+    - python >=3.6
     - six
 
 test:
   imports:
     - docs
     - elephas
-    - elephas.java
     - elephas.ml
     - elephas.mllib
     - elephas.parameter
@@ -47,6 +46,6 @@ about:
 
 extra:
   recipe-maintainers:
-    - Tata17
     - oblute
     - rluria14
+    - mxr-conda
