@@ -1,13 +1,13 @@
 {% set name = "elephas" %}
-{% set version = "3.0.0" %}
+{% set version = "7.3.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 6921367efc86d846cb2d8d4753fd7ed6f6bef6d7ba931145764205138dcad3b8
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: ed7033b910bd1c455c65c93af2e0970c6d83820bef40db428bb77b93b6d166e4
 
 build:
   noarch: python
@@ -17,32 +17,34 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
-
+    - hatchling
+    - python {{ python_min }}
   run:
-    - flask
-    - keras
-    - hyperas
-    - pyspark
-    - tensorflow
-    - python >=3.6
-    - six
+    - cython ==0.29.33
+    - flask ==2.3.3
+    - h5py ==3.11.0
+    - numpy <2.0.0
+    - pyspark <=4.0.0
+    - tensorflow >2.2,<2.20
+    - python >={{ python_min }},<3.13
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
-    - docs
     - elephas
+    - elephas.enums
     - elephas.ml
     - elephas.mllib
     - elephas.parameter
     - elephas.utils
 
 about:
-  home: http://github.com/maxpumperla/elephas
+  home: https://danielenricocahall.github.io/elephas/
   license: MIT
   license_file: LICENSE
-  summary: Deep learning on Spark with Keras
-  dev_url: http://github.com/maxpumperla/elephas
+  summary: Distributed deep learning on Spark with Keras
+  dev_url: https://github.com/danielenricocahall/elephas
 
 extra:
   recipe-maintainers:
